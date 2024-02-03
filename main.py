@@ -11,12 +11,12 @@ class MyServer(BaseHTTPRequestHandler):
     @staticmethod
     def __get_index():
         """ Метод для получения информации из файла html """
-        with open('data.html', 'r', encoding='uft-8') as file:
+        with open('data.html', 'r', encoding='utf-8') as file:
             response = file.read()
 
         return response
 
-    def do_get(self):
+    def do_GET(self):
         """ Метод для обработки входящих GET-запросов """
 
         query_components = parse_qs(urlparse(self.path).query)
